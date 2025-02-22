@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Подробная таблица умножения</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 400px;
+  margin: 20px auto;
+}
+.calculation {
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>Подробная таблица умножения</h1>
+
+<div class="container">
+<input type="number" id="numberInput" placeholder="Введите число">
+<button onclick="generateCalculations()">Создать вычисления</button>
+<div id="calculationsContainer"></div>
+</div>
+
+<script>
+function generateCalculations() {
+  const num = parseInt(document.getElementById("numberInput").value);
+  if (isNaN(num) || num <= 0) {
+    document.getElementById("calculationsContainer").innerHTML = "<p>Пожалуйста, введите целое положительное число.</p>";
+    return;
+  }
+
+  let calculationsHTML = "";
+  for (let i = 1; i <= 10; i++) {
+    calculationsHTML += `<div class="calculation">
+      ${num} x ${i} = ${num * i}
+    </div>`;
+  }
+
+  document.getElementById("calculationsContainer").innerHTML = calculationsHTML;
+}
+</script>
+
+</body>
+</html>
